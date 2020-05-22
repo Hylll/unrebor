@@ -1,0 +1,62 @@
+// -- TYPE SCALE --
+$type-scale: 1.33; // The scale that generate the ratio between fonts sizes
+$default-font-size: 16px;
+
+@function calculateRem($size) {
+  $remSize: $size / $default-font-size;
+  @return $remSize * 1rem;
+}
+
+@mixin font-size($size) {
+  font-size: calculateRem($size);
+}
+
+@function pow($number, $exponent) {
+  $value: $number;
+
+  @if $exponent == 0 {
+    @return 1
+  }
+
+  @if $exponent > 0 {
+    @for $i from 1 to $exponent {
+      $value: $value * $number;
+    }
+  }
+
+  @if $exponent < 0 {
+    @for $i from $exponent through 0 {
+      $value: $value / $number;
+    }
+  }
+
+  @return $value;
+}
+
+@function calculateTypeScale($exponent) {
+  @return calculateRem($default-font-size * pow($type-scale, $exponent));
+}
+
+// -> 37.90px
+$font-size-xxl: calculateTypeScale(3) !default;
+// -> 28.43px
+$font-size-xl: calculateTypeScale(2) !default;
+// -> 21.28px
+$font-size-l: calculateTypeScale(1) !default;
+// -> 16px
+$font-size-m: calculateTypeScale(0) !default;
+// -> 12px
+$font-size-s: calculateTypeScale(-1) !default;
+// -> 9px
+$font-size-xs: calculateTypeScale(-2) !default;
+// -> 6.76px
+$font-size-xxs: calculateTypeScale(-3) !default;
+
+$font-weight-thin: 100;
+$font-weight-light: 300;
+$font-weight-regular: normal;
+$font-weight-medium: 500;
+$font-weight-bold: bold;
+$font-weight-black: 900;
+
+$font-family: 'Beaufort', Helvetica, Arial, sans-serif;
