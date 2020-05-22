@@ -20,11 +20,13 @@
 
 <style lang="scss">
   @import "./assets/scss/reset";
-  @import "./assets/scss/common";
 
   #app {
+    width: 100%;
     font-family: Beaufort, Helvetica, Arial, sans-serif;
     flex-direction: column;
+    background-color: #111111;
+    color: #C28F2C;
   }
 
   @font-face {
