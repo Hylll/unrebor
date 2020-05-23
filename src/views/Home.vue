@@ -128,6 +128,7 @@
         color: $gold-light;
         font-size: $font-size-xxl;
         text-shadow: 2px 2px $black;
+        text-transform: capitalize;
       }
     }
 
