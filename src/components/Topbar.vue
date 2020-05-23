@@ -90,6 +90,7 @@
       transition: 0.3s;
       font-weight: bold;
       letter-spacing: 1px;
+      text-transform: capitalize;
 
       &:hover {
         border-bottom: 4px solid $blue;

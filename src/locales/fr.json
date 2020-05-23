@@ -2,5 +2,8 @@
   "stories": "histoires",
   "characters": "personnages",
   "lore": "lore",
-  "encyclopedia": "encyclopédie"
+  "encyclopedia": "encyclopédie",
+  "footer": {
+    "thanks": "Fait avec passion par Emmanuel M"
+  }
 }
