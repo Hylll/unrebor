@@ -1,19 +1,17 @@
 <template>
   <div id="app">
     <Topbar></Topbar>
-    <Home msg="Welcome to Your Vue.js App"/>
+    <router-view/>
   </div>
 </template>
 
 <script>
-  import Topbar from './components/Topbar';
-  import Home from './components/Home.vue';
+  import Topbar from '@/components/Topbar';
 
   export default {
     name: 'App',
     components: {
       Topbar,
-      Home,
     },
   };
 </script>
