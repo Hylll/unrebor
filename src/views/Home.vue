@@ -4,16 +4,16 @@
       <div class="home__presentation-wrapper"></div>
     </div>
     <div class="home__categories">
-      <a
+      <router-link
         :key="index"
         class="home__category"
-        href="#"
+        :to="category.link"
         v-for="(category, index) in categories">
         <div class="home__category-wrapper">
-          <h2 class="home__category-title">{{ category.title }}</h2>
+          <h2 class="home__category-title">{{ $t(category.title) }}</h2>
         </div>
         <div :style="category.style" class="home__category-background"></div>
-      </a>
+      </router-link>
       <span class="home__diamond">
         <span class="home__diamond home__diamond--inner"></span>
       </span>
@@ -28,25 +28,29 @@
       return {
         categories: {
           stories: {
-            title: 'Stories',
+            title: 'stories',
+            link: 'stories',
             style: {
               backgroundImage: `url(${require('../assets/images/stories_bg.jpg')})`,
             },
           },
           characters: {
-            title: 'Characters',
+            title: 'characters',
+            link: 'characters',
             style: {
               backgroundImage: `url(${require('../assets/images/characters_bg.jpg')})`,
             },
           },
           lore: {
-            title: 'Lore',
+            title: 'lore',
+            link: 'lore',
             style: {
               backgroundImage: `url(${require('../assets/images/lore_bg.jpg')})`,
             },
           },
           encyclopedia: {
-            title: 'Encyclopedia',
+            title: 'encyclopedia',
+            link: 'encyclopedia',
             style: {
               backgroundImage: `url(${require('../assets/images/encyclopedia_bg.jpg')})`,
             },

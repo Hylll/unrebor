@@ -1,3 +1,7 @@
 @mixin container {
   padding: 50px;
 }
+
+@mixin view-container {
+  margin-top: 80px; // The size of the topbar
+}
