@@ -3,7 +3,12 @@
   "characters": "characters",
   "lore": "lore",
   "encyclopedia": "encyclopedia",
+  "home": {
+    "welcoming": "Welcome to Unrebor",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In interdum nunc quam, eget blandit metus vehicula maximus. Pellentesque finibus imperdiet volutpat.",
+    "explore": "Explore"
+  },
   "footer": {
-    "thanks": "Made with passion by Emmanuel M"
+    "thanks": "Made with passion by Emmanuel M and Nathël A"
   }
 }

@@ -1,5 +1,9 @@
 <template>
-  <div class="stories">Stories</div>
+  <div class="stories">
+    <div>
+
+    </div>
+  </div>
 </template>
 
 <script>

@@ -33,6 +33,7 @@
 <style lang="scss" scoped>
   .language-switcher {
     align-items: center;
+    color: $gold;
 
     &__button {
       cursor: pointer;
