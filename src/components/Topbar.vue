@@ -60,6 +60,7 @@
     height: 80px;
     padding: 0 50px;
     background-color: $black-light;
+    z-index: 10;
 
     &__logo {
       position: absolute;
@@ -86,14 +87,14 @@
       color: $gold-light;
       padding: 8px 15px 24px;
       margin: 0 20px;
-      border: 4px solid transparent;
+      border: 5px solid transparent;
       transition: 0.3s;
       font-weight: bold;
       letter-spacing: 1px;
       text-transform: capitalize;
 
       &:hover {
-        border-bottom: 4px solid $blue;
+        border-bottom: 5px solid $blue;
       }
     }
 

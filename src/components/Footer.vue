@@ -16,5 +16,6 @@
     background-color: $black-light;
     align-items: center;
     justify-content: center;
+    color: $gold-light;
   }
 </style>
