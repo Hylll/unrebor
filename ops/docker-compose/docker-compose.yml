@@ -1,0 +1,76 @@
+version: '2'
+
+services:
+    nginx:
+        container_name: unrebor-nginx
+        build:
+            dockerfile: ./ops/nginx/Dockerfile
+            context: ../../
+        restart: always
+        ports:
+            - 80:80
+            - 443:443
+        volumes_from:
+            - php
+            - client
+        volumes:
+            - ./logs/nginx/:/var/log/nginx
+            - ../nginx/conf.d/front_dev.conf:/etc/nginx/sites-enabled/front.conf
+        links:
+            - php
+            - client
+        networks:
+            - default
+        environment:
+            - "PHP_HOSTNAME=php"
+            - "BACK_HOSTNAME=unrebor.local"
+            - "CORS_ORIGIN=*"
+            - "INTERNAL_HOSTNAME=nginx"
+
+    client:
+        container_name: unrebor-client
+        build:
+            context: ../..
+            dockerfile: ./ops/front/Dockerfile
+        entrypoint: ["/root/scripts/entrypoint_dev.sh"]
+        working_dir: /app
+        command: npm run serve
+        tty: true
+        volumes:
+            - '../../vue:/app'
+        environment:
+            HOST: 0.0.0.0
+            VUE_APP_HOSTNAME: www.unrebor.local
+            VUE_APP_API_HOST: http://api.unrebor.local
+
+    php:
+        container_name: unrebor-php
+        build:
+          context: ../..
+          dockerfile: ./ops/php/Dockerfile
+        command: "/root/scripts/entrypoint_dev.sh"
+        volumes:
+            - ../../symfony:/var/www/html/symfony
+            - ../../symfony/var:/var/www/html/symfony/var:cached
+            - ../../symfony/vendor:/var/www/html/symfony/vendor:cached
+            - ../../ops/php/scripts/entrypoint_dev.sh:/root/scripts/entrypoint_dev.sh
+        networks:
+            - default
+        environment:
+            DATABASE_URL: pgsql://root:root@db:5432/unrebor
+
+    db:
+        container_name: unrebor-db
+        image: postgres:11.4
+        volumes:
+            - postgres:/var/lib/postgresql/data
+        ports:
+            - 5432:5432
+        environment:
+            TZ: Europe/Paris
+            POSTGRES_USER: root
+            POSTGRES_DB: unrebor
+            POSTGRES_PASSWORD: root
+
+volumes:
+    postgres: ~
