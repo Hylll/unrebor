@@ -23,7 +23,7 @@ services:
             - default
         environment:
             - "PHP_HOSTNAME=php"
-            - "BACK_HOSTNAME=unrebor.local"
+            - "BACK_HOSTNAME=api.unrebor.local"
             - "CORS_ORIGIN=*"
             - "INTERNAL_HOSTNAME=nginx"
 
