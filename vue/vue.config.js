@@ -18,5 +18,10 @@ module.exports = {
       localeDir: 'locales',
       enableInSFC: true
     }
+  },
+  devServer: {
+    compress: true,
+    public: 'www.unrebor.local',
+    disableHostCheck: true,
   }
 };

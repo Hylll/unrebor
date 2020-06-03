@@ -20,4 +20,9 @@ module.exports = {
       '@': require('path').resolve(__dirname, 'src'),
     },
   },
+  devServer: {
+    compress: true,
+    public: 'www.unrebor.local',
+    disableHostCheck: true,
+  }
 };
