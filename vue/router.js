@@ -2,13 +2,6 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import i18n from '@/plugins/i18n';
 
-// Views
-import Home from '@/views/Home';
-import Stories from '@/views/Stories';
-import Characters from '@/views/Characters';
-import Lore from '@/views/Lore';
-import Encyclopedia from '@/views/Encyclopedia';
-
 Vue.use(Router);
 
 export default new Router({
@@ -25,26 +18,26 @@ export default new Router({
       },
       children: [
         {
-          component: Home,
+          component: () => import(/* webpackChunkName: "home" */ '@/views/Home'),
           path: '',
         },
         {
-          component: Stories,
+          component: () => import(/* webpackChunkName: "stories" */ '@/views/Stories'),
           path: 'stories',
         },
         {
-          component: Characters,
+          component: () => import(/* webpackChunkName: "characters" */ '@/views/Characters'),
           path: 'characters',
         },
         {
-          component: Lore,
+          component: () => import(/* webpackChunkName: "lore" */ '@/views/Lore'),
           path: 'lore',
         },
         {
-          component: Encyclopedia,
+          component: () => import(/* webpackChunkName: "encyclopedia" */ '@/views/Encyclopedia'),
           path: 'encyclopedia',
         },
       ],
     },
-  ]
+  ],
 });
