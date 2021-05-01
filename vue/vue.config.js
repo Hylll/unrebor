@@ -1,27 +1,17 @@
 module.exports = {
   runtimeCompiler: true,
-
-  css: {
-    loaderOptions: {
-      sass: {
-        prependData: `
-          @import "@/assets/scss/style.scss";
-        `
-      }
-    }
-  },
-
   pluginOptions: {
     i18n: {
-      locale: 'en',
-      fallbackLocale: 'en',
+      locale: 'fr',
+      fallbackLocale: 'fr',
       localeDir: 'locales',
-      enableInSFC: true
-    }
+      enableInSFC: false,
+    },
   },
   devServer: {
-    compress: true,
-    public: 'www.unrebor.local',
+    host: process.env.VUE_APP_HOSTNAME,
+    port: process.env.VUE_APP_PORT,
+    public: process.env.VUE_APP_PUBLIC,
     disableHostCheck: true,
-  }
+  },
 };
