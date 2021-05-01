@@ -3,42 +3,40 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "serve": "yarn generate-icons && vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "dev": "vue-cli-service serve",
+    "generate-icons": "node ./src/assets/icons/generate-icons.js",
+    "i18n:report": "vue-cli-service i18n:report --src './src/**/*.?(js|vue)' --locales './src/locales/**/*.json'"
   },
   "dependencies": {
+    "@vue/composition-api": "^1.0.0-beta.23",
+    "axios": "^0.19.2",
     "core-js": "^3.6.5",
-    "vue": "^2.6.11",
+    "vue": "^2.6.12",
     "vue-i18n": "^8.17.7",
     "vue-router": "^3.2.0",
     "vue-scrollto": "^2.18.1"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^4.3.1",
-    "@vue/cli-plugin-eslint": "^4.3.1",
-    "@vue/cli-service": "^4.3.1",
+    "@vue/cli-plugin-babel": "^5.0.0-alpha.8",
+    "@vue/cli-plugin-eslint": "^5.0.0-alpha.8",
+    "@vue/cli-plugin-router": "^4.5.12",
+    "@vue/cli-plugin-vuex": "^4.5.12",
+    "@vue/cli-service": "^5.0.0-alpha.7",
+    "@vue/eslint-config-airbnb": "^5.3.0",
+    "autoprefixer": "^10.2.5",
     "babel-eslint": "^10.1.0",
-    "eslint": "^7.0.0",
-    "eslint-plugin-vue": "^6.2.2",
-    "node-sass": "^4.14.1",
-    "sass-loader": "^8.0.2",
-    "sass-resources-loader": "^2.0.3",
-    "vue-template-compiler": "^2.6.11"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended"
-    ],
-    "parserOptions": {
-      "parser": "babel-eslint"
-    },
-    "rules": {}
+    "eslint": "^7.23.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-vue": "^7.9.0",
+    "postcss": "^8.2.9",
+    "sass": "^1.32.10",
+    "sass-loader": "^11.0.0",
+    "tailwindcss": "^2.1.2",
+    "vue-cli-plugin-i18n": "^2.0.2",
+    "vue-template-compiler": "^2.6.12"
   },
   "browserslist": [
     "> 1%",
