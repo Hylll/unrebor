@@ -2,7 +2,7 @@ import Vue from 'vue';
 import i18n from '@/plugins/i18n';
 import App from '@/App.vue';
 import VueScrollTo from 'vue-scrollto';
-import router from '../router';
+import router from './router';
 import '@/assets/scss/style.scss';
 
 Vue.use(VueScrollTo, {

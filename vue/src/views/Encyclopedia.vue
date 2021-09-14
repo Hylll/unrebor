@@ -1,10 +1,15 @@
 <template>
-  <div class="encyclopedia">Encyclopedia</div>
+  <div class="encyclopedia">
+    <ComingSoon />
+  </div>
 </template>
 
 <script>
+import ComingSoon from '@/components/ComingSoon.vue';
+
 export default {
   name: 'Encyclopedia',
+  components: { ComingSoon },
 };
 </script>
 

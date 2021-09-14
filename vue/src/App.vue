@@ -42,7 +42,7 @@ export default {
 
 .fade-enter-active, .fade-leave-active {
   transform: scale(1);
-  transition: .5s;
+  transition: .7s;
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   transform: scale(1.025);

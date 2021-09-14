@@ -46,28 +46,28 @@ export default {
           title: 'stories',
           link: 'stories',
           style: {
-            backgroundImage: `url(${require('../assets/images/stories_bg.jpg')})`,
+            backgroundImage: `url(${require('@/assets/images/stories_bg.jpg')})`,
           },
         },
         characters: {
           title: 'characters',
           link: 'characters',
           style: {
-            backgroundImage: `url(${require('../assets/images/characters_bg.jpg')})`,
+            backgroundImage: `url(${require('@/assets/images/characters_bg.jpg')})`,
           },
         },
         lore: {
           title: 'lore',
           link: 'lore',
           style: {
-            backgroundImage: `url(${require('../assets/images/lore_bg.jpg')})`,
+            backgroundImage: `url(${require('@/assets/images/lore_bg.jpg')})`,
           },
         },
         encyclopedia: {
           title: 'encyclopedia',
           link: 'encyclopedia',
           style: {
-            backgroundImage: `url(${require('../assets/images/encyclopedia_bg.jpg')})`,
+            backgroundImage: `url(${require('@/assets/images/encyclopedia_bg.jpg')})`,
           },
         },
       },
@@ -84,13 +84,13 @@ export default {
     @apply relative flex items-center justify-center flex-shrink-0 w-full;
     @apply mb-24;
     height: calc(100vh - 100px);
-    background-image: url('../assets/images/Ectalion.jpg');
+    background-image: url('@/assets/images/Ectalion.jpg');
     background-size: cover;
   }
 
   &__overlay {
     @apply absolute w-full h-full;
-    background: linear-gradient(rgba(#111, 0.4), #111);
+    background: linear-gradient(rgba(#111318, 0.4), #111318);
 
     &-stroke {
       @apply absolute w-full;
@@ -136,18 +136,18 @@ export default {
     }
 
     &-text {
-      @apply text-xl text-gold-80 mb-10;
+      @apply text-xl text-gold-60 mb-10;
       width: 600px;
     }
 
     &-button {
       @apply cursor-pointer py-5 px-10 uppercase;
-      @apply border-2 border-solid border-gold bg-black bg-opacity-80 text-gold;
+      @apply border-2 border-solid border-blue-60 bg-black bg-opacity-80 text-blue-60;
       letter-spacing: 2px;
       transition: 0.3s ease-out;
 
       &:hover {
-        transform: scale(1.07);
+        transform: scale(1.05);
       }
     }
   }
@@ -180,15 +180,15 @@ export default {
     }
 
     &-title {
-      @apply text-gold-80;
+      @apply text-gold-60;
       @apply text-5xl capitalize;
-      text-shadow: 2px 2px #111;
+      text-shadow: 2px 2px #111318;
     }
   }
 
   &__diamond {
     @apply absolute flex items-center justify-center flex-grow-0 flex-shrink-0 z-20;
-    border-width: 3px;
+    @apply border-2 border-gold;
     box-sizing: border-box;
     width: 40px;
     height: 40px;
