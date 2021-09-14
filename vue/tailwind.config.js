@@ -8,8 +8,8 @@ module.exports = {
     colors: {
       transparent: 'transparent',
       black: {
-        DEFAULT: '#111111',
-        100: '#111111',
+        DEFAULT: '#111318',
+        100: '#111318',
         80: '#1E2328',
       },
       white: {
@@ -18,7 +18,8 @@ module.exports = {
       gold: {
         DEFAULT: '#C28F2C',
         100: '#C28F2C',
-        80: '#C4B998',
+        80: '#c8aa6e',
+        60: '#C4B998',
       },
       brown: {
         DEFAULT: '#342B20',

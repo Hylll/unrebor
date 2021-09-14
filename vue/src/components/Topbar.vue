@@ -2,31 +2,31 @@
   <div class="topbar">
     <router-link
         class="topbar__logo"
-        :to="`/${currentPath}/`">
+        :to="{ name: 'Home' }">
       Unrebor
     </router-link>
     <nav class="topbar__navbar">
       <div class="topbar__sub-navbar topbar__sub-navbar--left">
         <router-link
             class="topbar__link"
-            to="stories">
+            :to="{ name: 'Stories' }">
           {{ $t('stories') }}
         </router-link>
         <router-link
             class="topbar__link"
-            to="characters">
+            :to="{ name: 'Characters' }">
           {{ $t('characters') }}
         </router-link>
       </div>
       <div class="topbar__sub-navbar topbar__sub-navbar--right">
         <router-link
             class="topbar__link"
-            to="lore">
+            :to="{ name: 'Lore' }">
           {{ $t('lore') }}
         </router-link>
         <router-link
             class="topbar__link"
-            to="encyclopedia">
+            :to="{ name: 'Encyclopedia' }">
           {{ $t('encyclopedia') }}
         </router-link>
       </div>
@@ -44,11 +44,6 @@ import LanguageSwitcher from '@/components/LanguageSwitcher.vue';
 export default {
   name: 'Topbar',
   components: { LanguageSwitcher },
-  computed: {
-    currentPath() {
-      return this.$route.params.locale;
-    },
-  },
 };
 </script>
 
@@ -81,13 +76,14 @@ export default {
   }
 
   &__link {
-    @apply text-lg text-gold-80;
+    @apply text-lg text-gold-60;
     @apply px-10 pb-6 my-0 font-bold capitalize;
     border: 5px solid transparent;
     transition: 0.5s;
     letter-spacing: 1px;
 
     &:hover {
+      @apply text-blue-60;
       border-bottom-color: #0BC4E2;
     }
   }

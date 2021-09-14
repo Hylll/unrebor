@@ -13,7 +13,7 @@ export default {
 <style lang="scss" scoped>
 .footer {
   @apply flex items-center justify-center;
-  @apply text-gold-80 bg-black-80;
+  @apply text-gold-60 bg-black-80;
   height: 100px;
 }
 </style>
