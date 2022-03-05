@@ -1,31 +1,12 @@
-import Vue from 'vue';
-import i18n from '@/plugins/i18n';
+import { createApp } from 'vue';
+import { registerPlugins } from '@/plugins';
 import App from '@/App.vue';
-import VueScrollTo from 'vue-scrollto';
-import router from './router';
+import router from '@/router';
 import '@/assets/scss/style.scss';
 
-Vue.use(VueScrollTo, {
-  easing: 'ease-out',
-});
+const app = createApp(App)
 
-Vue.config.productionTip = false;
+registerPlugins(app)
 
-// use beforeEach route guard to set the language
-router.beforeEach((to, from, next) => {
-  // use the language from the routing param or default language
-  let language = to.params.locale;
-  if (!language) {
-    language = 'en';
-  }
-
-  // set the current language for i18n.
-  i18n.locale = language;
-  next();
-});
-
-new Vue({
-  i18n,
-  router,
-  render: (h) => h(App),
-}).$mount('#app');
+app.use(router)
+app.mount('#app')

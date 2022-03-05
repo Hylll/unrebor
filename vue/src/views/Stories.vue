@@ -8,9 +8,9 @@
         <li
             v-for="(story, index) in stories"
             :key="index"
-            :style="{ backgroundImage: `url(${require(`@/assets/images/${story.background}`)})` }">
+            :style="{ backgroundImage: `url(${customStoryBg(story.background)})` }">
           <router-link
-              :to="{ name: 'Adventure', params: { id: story.id } }"
+              :to="{ name: 'Adventure', params: { id: story.id, locale: 'fr' } }"
               class="stories__story">
             <h2>{{ story.title }}</h2>
             <p>{{ story.description }}</p>
@@ -27,18 +27,14 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import storiesFixtures from '../fixtures/stories.json';
 
-/* eslint-disable global-require */
-export default {
-  name: 'Stories',
-  data() {
-    return {
-      stories: storiesFixtures,
-    };
-  },
-};
+const stories = storiesFixtures;
+
+function customStoryBg(name) {
+  return new URL(`../assets/images/${name}`, import.meta.url).href;
+}
 </script>
 
 <style lang="scss" scoped>

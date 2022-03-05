@@ -1,24 +1,18 @@
 <template>
   <div id="app">
     <Topbar/>
-    <transition name="fade">
-      <router-view/>
-    </transition>
+    <router-view v-slot="{ Component }">
+      <transition name="fade">
+        <component :is="Component" />
+      </transition>
+    </router-view>
     <Footer/>
   </div>
 </template>
 
-<script>
+<script setup>
 import Topbar from '@/components/Topbar.vue';
 import Footer from '@/components/Footer.vue';
-
-export default {
-  name: 'App',
-  components: {
-    Footer,
-    Topbar,
-  },
-};
 </script>
 
 <style lang="scss">

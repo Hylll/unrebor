@@ -25,8 +25,8 @@
         <img src="@/assets/images/maps/unrebor-map-clean.png" alt="unrebor's map">
       </div>
       <div class="home__world-presentation">
-        <p>Un monde gigantesque à explorer à travers le récit d'aventuriers</p>
-        <router-link :to="{ name: 'Encyclopedia' }" class="home__presentation-button">
+        <p>{{ $t('home.a-world-to-explore') }}</p>
+        <router-link :to="{ name: 'Encyclopedia', params: { locale: 'fr' } }" class="home__presentation-button">
           {{ $t('home.explore-world') }}
         </router-link>
       </div>
@@ -51,45 +51,39 @@
   </div>
 </template>
 
-<script>
-/* eslint-disable global-require */
-export default {
-  name: 'Home',
-  data() {
-    return {
-      categories: {
-        stories: {
-          title: 'stories',
-          link: 'stories',
-          style: {
-            backgroundImage: `url(${require('@/assets/images/stories_bg.jpg')})`,
-          },
-        },
-        characters: {
-          title: 'characters',
-          link: 'characters',
-          style: {
-            backgroundImage: `url(${require('@/assets/images/characters_bg.jpg')})`,
-          },
-        },
-        lore: {
-          title: 'lore',
-          link: 'lore',
-          style: {
-            backgroundImage: `url(${require('@/assets/images/lore_bg.jpg')})`,
-          },
-        },
-        encyclopedia: {
-          title: 'encyclopedia',
-          link: 'encyclopedia',
-          style: {
-            backgroundImage: `url(${require('@/assets/images/encyclopedia_bg.jpg')})`,
-          },
-        },
-      },
-    };
+<script setup>
+import { ref } from 'vue';
+
+const categories = ref({
+  stories: {
+    title: 'stories',
+        link: 'stories',
+        style: {
+      backgroundImage: `url(${new URL('../assets/images/stories_bg.jpg', import.meta.url).href})`,
+    },
   },
-};
+  characters: {
+    title: 'characters',
+        link: 'characters',
+        style: {
+      backgroundImage: `url(${new URL('../assets/images/characters_bg.jpg', import.meta.url).href})`,
+    },
+  },
+  lore: {
+    title: 'lore',
+        link: 'lore',
+        style: {
+      backgroundImage: `url(${new URL('../assets/images/lore_bg.jpg', import.meta.url).href})`,
+    },
+  },
+  encyclopedia: {
+    title: 'encyclopedia',
+        link: 'encyclopedia',
+        style: {
+      backgroundImage: `url(${new URL('../assets/images/encyclopedia_bg.jpg', import.meta.url).href})`,
+    },
+  },
+})
 </script>
 
 <style lang="scss" scoped>
