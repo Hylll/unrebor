@@ -4,13 +4,8 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import ComingSoon from '@/components/ComingSoon.vue';
-
-export default {
-  name: 'Encyclopedia',
-  components: { ComingSoon },
-};
 </script>
 
 <style lang="scss" scoped>

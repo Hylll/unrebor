@@ -7,16 +7,14 @@ module.exports = {
 
   extends: [
     'plugin:vue/essential',
-    '@vue/airbnb',
   ],
 
   parserOptions: {
-    parser: 'babel-eslint',
+    requireConfigFile: false,
+    parser: '@babel/eslint-parser',
   },
 
   rules: {
-    'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'max-len': 'off',
     'no-param-reassign': 'off',
     'no-multiple-empty-lines': 'off',
@@ -24,5 +22,6 @@ module.exports = {
     'arrow-body-style': 'off',
     'no-cond-assign': 'off',
     'vue/no-mutating-props': 'off',
+    'vue/multi-word-component-names': 'off',
   },
 };

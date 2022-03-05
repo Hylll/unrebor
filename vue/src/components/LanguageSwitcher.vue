@@ -14,20 +14,21 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'Language-switcher',
-  methods: {
-    setLocale(locale) {
-      if (locale !== this.$route.params.locale) {
-        this.$router.push({
-          params: { locale },
-        });
-      }
-      this.$i18n.locale = locale;
-    },
-  },
-};
+<script setup>
+import { useRoute, useRouter } from 'vue-router';
+import i18n from '@/plugins/i18n'
+
+const router = useRouter();
+const route = useRoute();
+
+function setLocale(locale) {
+  if (locale !== route.params.locale) {
+    router.push({
+      params: { locale },
+    });
+  }
+  i18n.global.locale = locale;
+}
 </script>
 
 <style lang="scss" scoped>

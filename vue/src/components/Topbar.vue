@@ -2,31 +2,31 @@
   <div class="topbar">
     <router-link
         class="topbar__logo"
-        :to="{ name: 'Home' }">
+        :to="{ name: 'Home', params: { locale: 'fr' } }">
       Unrebor
     </router-link>
     <nav class="topbar__navbar">
       <div class="topbar__sub-navbar topbar__sub-navbar--left">
         <router-link
             class="topbar__link"
-            :to="{ name: 'Stories' }">
+            :to="{ name: 'Stories', params: { locale: 'fr' } }">
           {{ $t('stories') }}
         </router-link>
         <router-link
             class="topbar__link"
-            :to="{ name: 'Characters' }">
+            :to="{ name: 'Characters', params: { locale: 'fr' } }">
           {{ $t('characters') }}
         </router-link>
       </div>
       <div class="topbar__sub-navbar topbar__sub-navbar--right">
         <router-link
             class="topbar__link"
-            :to="{ name: 'Lore' }">
+            :to="{ name: 'Lore', params: { locale: 'fr' } }">
           {{ $t('lore') }}
         </router-link>
         <router-link
             class="topbar__link"
-            :to="{ name: 'Encyclopedia' }">
+            :to="{ name: 'Encyclopedia', params: { locale: 'fr' } }">
           {{ $t('encyclopedia') }}
         </router-link>
       </div>
@@ -38,13 +38,8 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import LanguageSwitcher from '@/components/LanguageSwitcher.vue';
-
-export default {
-  name: 'Topbar',
-  components: { LanguageSwitcher },
-};
 </script>
 
 <style lang="scss" scoped>
