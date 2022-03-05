@@ -1,21 +1,17 @@
 import { defineConfig } from 'vite';
-import createVuePlugin from '@vitejs/plugin-vue';
+import vue from '@vitejs/plugin-vue';
 
 export default defineConfig({
-  resolve: {
-    alias: {
-      vue: '@vue/compat',
-    },
+  server: {
+    port: 8080,
+    host: '0.0.0.0',
   },
   plugins: [
-    createVuePlugin({
-      template: {
-        compilerOptions: {
-          compatConfig: {
-            MODE: 3,
-          },
-        },
-      },
-    }),
+    vue(),
   ],
+  resolve: {
+    alias: {
+      '@/': new URL('./src/', import.meta.url).pathname,
+    },
+  },
 });

@@ -1,7 +1,7 @@
 <template>
   <div class="adventure">
     <header
-        :style="{ backgroundImage: `url(${require(`@/assets/images/${adventure.background}`)})` }">
+        :style="{ backgroundImage: `url(${customStoryBg(adventure.background)})` }">
       <div class="adventure__head-overlay">
         <h1 class="adventure__head-title">{{ adventure.title }}</h1>
         <p class="adventure__head-subtitle">{{ $t('story-by') }} {{ adventure.author.firstname }} {{ adventure.author.lastname }}</p>
@@ -44,17 +44,14 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import storiesFixtures from '@/fixtures/stories.json';
 
-export default {
-  name: 'Adventure',
-  data() {
-    return {
-      adventure: storiesFixtures[0],
-    };
-  },
-};
+const adventure = storiesFixtures[0];
+
+function customStoryBg(name) {
+  return new URL(`../../assets/images/${name}`, import.meta.url).href;
+}
 </script>
 
 <style lang="scss" scoped>
@@ -138,7 +135,7 @@ export default {
        transition: 0.3s;
 
        &:hover {
-         transform: translateX(20px);
+         transform: translateX(10px);
        }
      }
 

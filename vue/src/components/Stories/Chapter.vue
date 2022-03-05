@@ -1,7 +1,7 @@
 <template>
   <div class="chapter">
     <header
-        :style="{ backgroundImage: `url(${require(`@/assets/images/${chapter.background}`)})` }">
+        :style="{ backgroundImage: `url('@/assets/images/${chapter.background}')` }">
       <div class="chapter__head-overlay">
         <h1 class="chapter__head-title">{{ chapter.title }}</h1>
         <p class="chapter__head-subtitle">{{ adventure.title }}</p>
@@ -10,18 +10,11 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import storiesFixtures from '@/fixtures/stories.json';
 
-export default {
-  name: 'Chapter',
-  data() {
-    return {
-      chapter: storiesFixtures[0].arcs[0].chapters[this.$route.params.chapter - 1],
-      adventure: storiesFixtures[0],
-    };
-  },
-};
+const chapter = storiesFixtures[0].arcs[0].chapters[this.$route.params.chapter - 1];
+const adventure = storiesFixtures[0];
 </script>
 
 <style lang="scss" scoped>

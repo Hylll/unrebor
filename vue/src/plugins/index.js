@@ -1,4 +1,5 @@
 import i18n from './i18n';
+import VueScrollTo from 'vue-scrollto';
 
 /**
  *
@@ -6,4 +7,7 @@ import i18n from './i18n';
  */
 export function registerPlugins(app) {
   app.use(i18n);
+  app.use(VueScrollTo, {
+    easing: 'ease-out',
+  });
 }

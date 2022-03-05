@@ -38,13 +38,8 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import LanguageSwitcher from '@/components/LanguageSwitcher.vue';
-
-export default {
-  name: 'Topbar',
-  components: { LanguageSwitcher },
-};
 </script>
 
 <style lang="scss" scoped>
