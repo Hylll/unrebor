@@ -17,6 +17,22 @@
         <div class="home__overlay-stroke home__overlay-stroke-thin home__overlay-stroke-thin--right"></div>
       </div>
     </div>
+
+    <!-- world -->
+    <div class="home__world">
+      <div class="home__world-overlay" />
+      <div class="home__world-map">
+        <img src="@/assets/images/maps/unrebor-map-clean.png" alt="unrebor's map">
+      </div>
+      <div class="home__world-presentation">
+        <p>Un monde gigantesque à explorer à travers le récit d'aventuriers</p>
+        <router-link :to="{ name: 'Encyclopedia' }" class="home__presentation-button">
+          {{ $t('home.explore-world') }}
+        </router-link>
+      </div>
+    </div>
+
+    <!-- categories -->
     <div class="home__categories">
       <router-link
           :key="index"
@@ -78,11 +94,10 @@ export default {
 
 <style lang="scss" scoped>
 .home {
-  @apply flex flex-col w-full h-full;
+  @apply flex flex-col items-center w-full h-full;
 
   &__caption {
     @apply relative flex items-center justify-center flex-shrink-0 w-full;
-    @apply mb-24;
     height: calc(100vh - 100px);
     background-image: url('@/assets/images/Ectalion.jpg');
     background-size: cover;
@@ -148,6 +163,32 @@ export default {
 
       &:hover {
         transform: scale(1.05);
+      }
+    }
+  }
+
+  &__world {
+    @apply relative flex flex-col items-center justify-center z-10 mb-24;
+
+    &-overlay {
+      @apply w-full h-24;
+      @apply bg-gradient-to-b from-transparent to-black;
+    }
+
+    &-presentation {
+      @apply absolute flex flex-col items-center max-w-2xl;
+      text-shadow: 2px 2px #111318;
+
+      p {
+        @apply text-5xl text-center text-gold-60 mb-10;
+      }
+    }
+
+    &-map {
+      @apply flex justify-center w-full bg-black;
+
+      img {
+        @apply w-3/4 opacity-25;
       }
     }
   }

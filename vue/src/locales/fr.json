@@ -6,7 +6,8 @@
   "home": {
     "welcoming": "Bienvenue à Unrebor",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In interdum nunc quam, eget blandit metus vehicula maximus. Pellentesque finibus imperdiet volutpat.",
-    "explore": "explorer"
+    "explore": "Explorer",
+    "explore-world": "Explorer le monde"
   },
   "footer": {
     "thanks": "Fait avec passion par Emmanuel M et Nathaël A"
