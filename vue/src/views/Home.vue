@@ -26,7 +26,7 @@
       </div>
       <div class="home__world-presentation">
         <p>Un monde gigantesque à explorer à travers le récit d'aventuriers</p>
-        <router-link :to="{ name: 'Encyclopedia' }" class="home__presentation-button">
+        <router-link :to="{ name: 'Encyclopedia', params: { locale: 'fr' } }" class="home__presentation-button">
           {{ $t('home.explore-world') }}
         </router-link>
       </div>

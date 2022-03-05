@@ -1,4 +1,4 @@
-{
+export default {
   "stories": "histoires",
   "characters": "personnages",
   "lore": "lore",

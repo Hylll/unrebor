@@ -10,7 +10,7 @@
             :key="index"
             :style="{ backgroundImage: `url(${require(`@/assets/images/${story.background}`)})` }">
           <router-link
-              :to="{ name: 'Adventure', params: { id: story.id } }"
+              :to="{ name: 'Adventure', params: { id: story.id, locale: 'fr' } }"
               class="stories__story">
             <h2>{{ story.title }}</h2>
             <p>{{ story.description }}</p>

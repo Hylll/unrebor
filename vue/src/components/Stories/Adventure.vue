@@ -27,7 +27,7 @@
                 :key="chapter.title">
               <router-link
                   class="adventure__chapter-wrapper"
-                  :to="{ name: 'Chapter', params: { chapter: chapter.number } }">
+                  :to="{ name: 'Chapter', params: { chapter: chapter.number, locale: 'fr' } }">
                 <p class="adventure__chapter-number">{{ $t('chapter') }} {{ chapter.number }}</p>
                 <h3 class="adventure__chapter-title">{{ chapter.title }}</h3>
                 <div class="adventure__chapter-infos">

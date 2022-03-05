@@ -1,11 +1,8 @@
-import Vue from 'vue';
-import Router from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router'
 import i18n from '@/plugins/i18n';
 
-Vue.use(Router);
-
-export default new Router({
-  mode: 'history',
+const router = createRouter({
+  history: createWebHistory(process.env.BASE_URL),
   routes: [
     {
       path: '/',
@@ -59,3 +56,5 @@ export default new Router({
     return { x: 0, y: 0 };
   },
 });
+
+export default router

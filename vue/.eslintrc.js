@@ -7,11 +7,11 @@ module.exports = {
 
   extends: [
     'plugin:vue/essential',
-    '@vue/airbnb',
   ],
 
   parserOptions: {
-    parser: 'babel-eslint',
+    "requireConfigFile": false,
+    parser: '@babel/eslint-parser',
   },
 
   rules: {
@@ -24,5 +24,6 @@ module.exports = {
     'arrow-body-style': 'off',
     'no-cond-assign': 'off',
     'vue/no-mutating-props': 'off',
+    'vue/multi-word-component-names': 'off',
   },
 };
