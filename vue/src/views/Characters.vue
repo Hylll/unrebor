@@ -1,10 +1,15 @@
 <template>
-  <div class="characters">Characters</div>
+  <div class="characters">
+    <ComingSoon />
+  </div>
 </template>
 
 <script>
+import ComingSoon from '@/components/ComingSoon.vue';
+
 export default {
   name: 'Characters',
+  components: { ComingSoon },
 };
 </script>
 
