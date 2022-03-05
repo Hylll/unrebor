@@ -4,8 +4,8 @@
   </div>
 </template>
 
-<script setup>
-import ComingSoon from '@/components/ComingSoon.vue';
+<script lang="ts" setup>
+import ComingSoon from '../components/ComingSoon.vue';
 </script>
 
 <style lang="scss" scoped>

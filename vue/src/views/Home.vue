@@ -2,19 +2,24 @@
   <div class="home">
     <div class="home__caption">
       <div class="home__presentation">
-        <h1 class="home__presentation-title">{{ $t('home.welcoming') }}</h1>
-        <p class="home__presentation-text">{{ $t('home.description') }}</p>
+        <h1 class="home__presentation-title">
+          {{ $t('home.welcoming') }}
+        </h1>
+        <p class="home__presentation-text">
+          {{ $t('home.description') }}
+        </p>
         <button
-            class="home__presentation-button"
-            v-scroll-to="{ el: '.home__categories', offset: -85, easing: 'ease-out' }">
+          v-scroll-to="{ el: '.home__categories', offset: -85, easing: 'ease-out' }"
+          class="home__presentation-button"
+        >
           {{ $t('home.explore') }}
         </button>
       </div>
       <div class="home__overlay">
-        <div class="home__overlay-stroke home__overlay-stroke--left"></div>
-        <div class="home__overlay-stroke home__overlay-stroke-thin home__overlay-stroke-thin--left"></div>
-        <div class="home__overlay-stroke home__overlay-stroke--right"></div>
-        <div class="home__overlay-stroke home__overlay-stroke-thin home__overlay-stroke-thin--right"></div>
+        <div class="home__overlay-stroke home__overlay-stroke--left" />
+        <div class="home__overlay-stroke home__overlay-stroke-thin home__overlay-stroke-thin--left" />
+        <div class="home__overlay-stroke home__overlay-stroke--right" />
+        <div class="home__overlay-stroke home__overlay-stroke-thin home__overlay-stroke-thin--right" />
       </div>
     </div>
 
@@ -22,11 +27,17 @@
     <div class="home__world">
       <div class="home__world-overlay" />
       <div class="home__world-map">
-        <img src="@/assets/images/maps/unrebor-map-clean.png" alt="unrebor's map">
+        <img
+          src="../assets/images/maps/unrebor-map-clean.png"
+          alt="unrebor's map"
+        >
       </div>
       <div class="home__world-presentation">
         <p>{{ $t('home.a-world-to-explore') }}</p>
-        <router-link :to="{ name: 'Encyclopedia', params: { locale: 'fr' } }" class="home__presentation-button">
+        <router-link
+          :to="{ name: 'Encyclopedia', params: { locale: 'fr' } }"
+          class="home__presentation-button"
+        >
           {{ $t('home.explore-world') }}
         </router-link>
       </div>
@@ -35,23 +46,29 @@
     <!-- categories -->
     <div class="home__categories">
       <router-link
-          :key="index"
-          :to="category.link"
-          class="home__category"
-          v-for="(category, index) in categories">
+        v-for="(category, index) in categories"
+        :key="index"
+        :to="category.link"
+        class="home__category"
+      >
         <div class="home__category-wrapper">
-          <h2 class="home__category-title">{{ $t(category.title) }}</h2>
+          <h2 class="home__category-title">
+            {{ $t(category.title) }}
+          </h2>
         </div>
-        <div :style="category.style" class="home__category-background"></div>
+        <div
+          :style="category.style"
+          class="home__category-background"
+        />
       </router-link>
       <span class="home__diamond">
-        <span class="home__diamond home__diamond--inner"></span>
+        <span class="home__diamond home__diamond--inner" />
       </span>
     </div>
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
 
 const categories = ref({
@@ -93,7 +110,7 @@ const categories = ref({
   &__caption {
     @apply relative flex items-center justify-center flex-shrink-0 w-full;
     height: calc(100vh - 100px);
-    background-image: url('@/assets/images/Ectalion.jpg');
+    background-image: url('../assets/images/Ectalion.jpg');
     background-size: cover;
   }
 

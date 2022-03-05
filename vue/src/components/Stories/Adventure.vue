@@ -1,17 +1,23 @@
 <template>
   <div class="adventure">
     <header
-        :style="{ backgroundImage: `url(${customStoryBg(adventure.background)})` }">
+      :style="{ backgroundImage: `url(${resolveUrl(adventure.background)})` }"
+    >
       <div class="adventure__head-overlay">
-        <h1 class="adventure__head-title">{{ adventure.title }}</h1>
-        <p class="adventure__head-subtitle">{{ $t('story-by') }} {{ adventure.author.firstname }} {{ adventure.author.lastname }}</p>
+        <h1 class="adventure__head-title">
+          {{ adventure.title }}
+        </h1>
+        <p class="adventure__head-subtitle">
+          {{ $t('story-by') }} {{ adventure.author.firstname }} {{ adventure.author.lastname }}
+        </p>
       </div>
     </header>
     <div class="adventure__container">
       <ul
-          class="adventure__arcs content"
-          v-for="(arc, index) in adventure.arcs"
-          :key="arc.title">
+        v-for="(arc, index) in adventure.arcs"
+        :key="arc.title"
+        class="adventure__arcs content"
+      >
         <li class="adventure__arc">
           <h2 class="adventure__arc-title">
             <span class="adventure__arc-title--sub">Arc {{ index + 1 }}</span>
@@ -22,14 +28,20 @@
           </h2>
           <ul class="adventure__chapters">
             <li
-                class="adventure__chapter"
-                v-for="chapter in arc.chapters"
-                :key="chapter.title">
+              v-for="chapter in arc.chapters"
+              :key="chapter.title"
+              class="adventure__chapter"
+            >
               <router-link
-                  class="adventure__chapter-wrapper"
-                  :to="{ name: 'Chapter', params: { chapter: chapter.number, locale: 'fr' } }">
-                <p class="adventure__chapter-number">{{ $t('chapter') }} {{ chapter.number }}</p>
-                <h3 class="adventure__chapter-title">{{ chapter.title }}</h3>
+                class="adventure__chapter-wrapper"
+                :to="{ name: 'Chapter', params: { chapter: chapter.number, locale: 'fr' } }"
+              >
+                <p class="adventure__chapter-number">
+                  {{ $t('chapter') }} {{ chapter.number }}
+                </p>
+                <h3 class="adventure__chapter-title">
+                  {{ chapter.title }}
+                </h3>
                 <div class="adventure__chapter-infos">
                   <p class="adventure__chapter-infos-reading-time">
                     {{ chapter.readingTime }} min
@@ -44,14 +56,13 @@
   </div>
 </template>
 
-<script setup>
-import storiesFixtures from '@/fixtures/stories.json';
+<script lang="ts" setup>
+import storiesFixtures from '../../fixtures/stories.json';
+import { useResolveAssetsPath } from "../../composables/useResolveAssetsPath";
 
 const adventure = storiesFixtures[0];
 
-function customStoryBg(name) {
-  return new URL(`../../assets/images/${name}`, import.meta.url).href;
-}
+const resolveUrl = useResolveAssetsPath;
 </script>
 
 <style lang="scss" scoped>

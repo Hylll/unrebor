@@ -1,27 +1,29 @@
 <template>
   <div class="language-switcher">
     <p
-        @click="setLocale('fr')"
-        class="language-switcher__button">
+      class="language-switcher__button"
+      @click="setLocale('fr')"
+    >
       Fr
     </p>
     <span class="language-switcher__separator">|</span>
     <p
-        @click="setLocale('en')"
-        class="language-switcher__button">
+      class="language-switcher__button"
+      @click="setLocale('en')"
+    >
       En
     </p>
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { useRoute, useRouter } from 'vue-router';
-import i18n from '@/plugins/i18n'
+import i18n from '../plugins/i18n'
 
 const router = useRouter();
 const route = useRoute();
 
-function setLocale(locale) {
+function setLocale(locale: string) {
   if (locale !== route.params.locale) {
     router.push({
       params: { locale },
