@@ -1,25 +1,28 @@
 <template>
-  <div class="stories">
+  <div
+    class="stories"
+    :style="{ backgroundImage: `url('${path}/Vaalyniel.jpg')` }"
+  >
     <header>
       <h1>{{ $t('stories') }}</h1>
     </header>
     <div class="stories__container">
       <ul>
         <li
-            v-for="(story, index) in stories"
-            :key="index"
-            :style="{ backgroundImage: `url(${resolveUrl(story.background)})` }"
+          v-for="(story, index) in stories"
+          :key="index"
+          :style="{ backgroundImage: `url(${story.background})` }"
         >
           <router-link
-              :to="{ name: 'Adventure', params: { id: story.id, locale: 'fr' } }"
-              class="stories__story"
+            :to="{ name: 'Adventure', params: { id: story.id, locale: 'fr' } }"
+            class="stories__story"
           >
             <h2>{{ story.title }}</h2>
             <p>{{ story.description }}</p>
             <button>
               <span>
                 {{ $t('read') }}
-                <i class="icon-arrow-right"/>
+                <i class="icon-arrow-right" />
               </span>
             </button>
           </router-link>
@@ -31,18 +34,17 @@
 
 <script lang="ts" setup>
 import storiesFixtures from '../fixtures/stories.json';
-import { useResolveAssetsPath } from "../composables/useResolveAssetsPath";
+import { s3Path } from "../constants/s3Path";
+
+const path = s3Path;
 
 const stories = storiesFixtures;
-
-const resolveUrl = useResolveAssetsPath;
 </script>
 
 <style lang="scss" scoped>
 .stories {
   @apply mt-20 w-full;
   min-height: calc(100vh - 80px); // The size of the topbar
-  background-image: url('../assets/images/Vaalyniel.jpg');
   background-size: cover;
 
   header {

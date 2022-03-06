@@ -1,7 +1,7 @@
 <template>
   <div class="adventure">
     <header
-      :style="{ backgroundImage: `url(${resolveUrl(adventure.background)})` }"
+      :style="{ backgroundImage: `url(${adventure.background})` }"
     >
       <div class="adventure__head-overlay">
         <h1 class="adventure__head-title">
@@ -58,11 +58,8 @@
 
 <script lang="ts" setup>
 import storiesFixtures from '../../fixtures/stories.json';
-import { useResolveAssetsPath } from "../../composables/useResolveAssetsPath";
 
 const adventure = storiesFixtures[0];
-
-const resolveUrl = useResolveAssetsPath;
 </script>
 
 <style lang="scss" scoped>
