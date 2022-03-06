@@ -1,6 +1,9 @@
 <template>
   <div class="home">
-    <div class="home__caption">
+    <div
+      class="home__caption"
+      :style="{ backgroundImage: `url('${path}/Ectalion.jpg')` }"
+    >
       <div class="home__presentation">
         <h1 class="home__presentation-title">
           {{ $t('home.welcoming') }}
@@ -28,7 +31,7 @@
       <div class="home__world-overlay" />
       <div class="home__world-map">
         <img
-          src="../assets/images/maps/unrebor-map-clean.png"
+          :src="`${path}/maps/unrebor-map-clean.png`"
           alt="unrebor's map"
         >
       </div>
@@ -70,34 +73,37 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
+import { s3Path } from "../constants/s3Path";
+
+const path = s3Path;
 
 const categories = ref({
   stories: {
     title: 'stories',
         link: 'stories',
         style: {
-      backgroundImage: `url(${new URL('../assets/images/stories_bg.jpg', import.meta.url).href})`,
+      backgroundImage: `url(${new URL(`${s3Path}/stories_bg.jpg`, import.meta.url).href})`,
     },
   },
   characters: {
     title: 'characters',
         link: 'characters',
         style: {
-      backgroundImage: `url(${new URL('../assets/images/characters_bg.jpg', import.meta.url).href})`,
+      backgroundImage: `url(${new URL(`${s3Path}/characters_bg.jpg`, import.meta.url).href})`,
     },
   },
   lore: {
     title: 'lore',
         link: 'lore',
         style: {
-      backgroundImage: `url(${new URL('../assets/images/lore_bg.jpg', import.meta.url).href})`,
+      backgroundImage: `url(${new URL(`${s3Path}/lore_bg.jpg`, import.meta.url).href})`,
     },
   },
   encyclopedia: {
     title: 'encyclopedia',
         link: 'encyclopedia',
         style: {
-      backgroundImage: `url(${new URL('../assets/images/encyclopedia_bg.jpg', import.meta.url).href})`,
+      backgroundImage: `url(${new URL(`${s3Path}/encyclopedia_bg.jpg`, import.meta.url).href})`,
     },
   },
 })
@@ -110,7 +116,6 @@ const categories = ref({
   &__caption {
     @apply relative flex items-center justify-center flex-shrink-0 w-full;
     height: calc(100vh - 100px);
-    background-image: url('../assets/images/Ectalion.jpg');
     background-size: cover;
   }
 
