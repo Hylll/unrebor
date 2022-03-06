@@ -8,10 +8,12 @@
         <li
             v-for="(story, index) in stories"
             :key="index"
-            :style="{ backgroundImage: `url(${customStoryBg(story.background)})` }">
+            :style="{ backgroundImage: `url(${resolveUrl(story.background)})` }"
+        >
           <router-link
               :to="{ name: 'Adventure', params: { id: story.id, locale: 'fr' } }"
-              class="stories__story">
+              class="stories__story"
+          >
             <h2>{{ story.title }}</h2>
             <p>{{ story.description }}</p>
             <button>
@@ -27,14 +29,13 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import storiesFixtures from '../fixtures/stories.json';
+import { useResolveAssetsPath } from "../composables/useResolveAssetsPath";
 
 const stories = storiesFixtures;
 
-function customStoryBg(name) {
-  return new URL(`../assets/images/${name}`, import.meta.url).href;
-}
+const resolveUrl = useResolveAssetsPath;
 </script>
 
 <style lang="scss" scoped>

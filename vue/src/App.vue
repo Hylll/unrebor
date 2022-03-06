@@ -1,18 +1,18 @@
 <template>
   <div id="app">
-    <Topbar/>
+    <Topbar />
     <router-view v-slot="{ Component }">
       <transition name="fade">
         <component :is="Component" />
       </transition>
     </router-view>
-    <Footer/>
+    <Footer />
   </div>
 </template>
 
-<script setup>
-import Topbar from '@/components/Topbar.vue';
-import Footer from '@/components/Footer.vue';
+<script lang="ts" setup>
+import Topbar from './components/Topbar.vue';
+import Footer from './components/Footer.vue';
 </script>
 
 <style lang="scss">
@@ -36,7 +36,7 @@ import Footer from '@/components/Footer.vue';
 
 .fade-enter-active, .fade-leave-active {
   transform: scale(1);
-  transition: .7s;
+  transition: .5s;
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   transform: scale(1.025);
