@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts" setup>
-import ComingSoon from '../components/ComingSoon.vue';
+import ComingSoon from '@/components/ComingSoon.vue';
 </script>
 
 <style lang="scss" scoped>

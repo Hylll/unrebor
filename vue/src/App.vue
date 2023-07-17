@@ -2,17 +2,15 @@
   <div id="app">
     <Topbar />
     <router-view v-slot="{ Component }">
-      <transition name="fade">
-        <component :is="Component" />
-      </transition>
+      <component :is="Component" />
     </router-view>
     <Footer />
   </div>
 </template>
 
 <script lang="ts" setup>
-import Topbar from './components/Topbar.vue';
-import Footer from './components/Footer.vue';
+import Topbar from '@/components/Topbar.vue';
+import Footer from '@/components/Footer.vue';
 </script>
 
 <style lang="scss">
@@ -32,14 +30,5 @@ import Footer from './components/Footer.vue';
   url('./assets/fonts/Beaufort Medium.woff') format('woff'),
   url('./assets/fonts/Beaufort Medium.ttf') format('truetype');
   font-weight: normal;
-}
-
-.fade-enter-active, .fade-leave-active {
-  transform: scale(1);
-  transition: .5s;
-}
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  transform: scale(1.025);
-  opacity: 0;
 }
 </style>

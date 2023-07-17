@@ -1,6 +1,6 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory, Router } from 'vue-router'
 
-const router = createRouter({
+const router: Router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
@@ -14,12 +14,12 @@ const router = createRouter({
       path: '/stories',
     },
     {
-      component: () => import('../components/Stories/Adventure.vue'),
+      component: () => import('@/components/Stories/Adventure.vue'),
       name: 'Adventure',
       path: '/adventure/:id', // story id
     },
     {
-      component: () => import('../components/Stories/Chapter.vue'),
+      component: () => import('@/components/Stories/Chapter.vue'),
       name: 'Chapter',
       path: '/adventure/:id/:chapter', // chapter number
     },

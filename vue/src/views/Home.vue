@@ -73,7 +73,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { s3Path } from "../constants/s3Path";
+import { s3Path } from "@/constants/s3Path";
 
 const path = s3Path;
 
@@ -227,7 +227,7 @@ const categories = ref({
 
     &-wrapper {
       @apply absolute flex items-center justify-center w-full h-full;
-      @apply bg-black bg-opacity-50 z-10;
+      @apply bg-black/50 z-10;
     }
 
     &-background {
