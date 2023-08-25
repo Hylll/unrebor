@@ -14,7 +14,7 @@
           :style="{ backgroundImage: `url(${story.background})` }"
         >
           <router-link
-            :to="{ name: 'Adventure', params: { id: story.id, locale: 'fr' } }"
+            :to="{ name: 'Adventure', params: { id: story.id } }"
             class="stories__story"
           >
             <h2>{{ story.title }}</h2>
