@@ -51,7 +51,7 @@ import LanguageSwitcher from '@/components/LanguageSwitcher.vue';
 <style lang="scss" scoped>
 .topbar {
   @apply fixed flex items-center justify-center;
-  @apply px-12 bg-black-80 z-50;
+  @apply px-4 lg:px-12 bg-black-80 z-50;
   width: 100vw;
   height: 80px;
 

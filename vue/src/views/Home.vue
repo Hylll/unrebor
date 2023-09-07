@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home overflow-x-hidden">
     <div
       class="home__caption"
       :style="{ backgroundImage: `url('${path}/Ectalion.jpg')` }"
@@ -58,6 +58,10 @@
           <h2 class="home__category-title">
             {{ $t(category.title) }}
           </h2>
+          <font-awesome-icon
+            class="ml-2 text-gold-60 text-2xl lg:text-3xl"
+            :icon="['fas', 'arrow-right']"
+          />
         </div>
         <div
           :style="category.style"
@@ -106,7 +110,7 @@ const categories = ref({
       backgroundImage: `url(${new URL(`${s3Path}/encyclopedia_bg.jpg`, import.meta.url).href})`,
     },
   },
-})
+});
 </script>
 
 <style lang="scss" scoped>
@@ -159,16 +163,14 @@ const categories = ref({
     @apply p-10 mt-20 z-10;
 
     &-title {
-      @apply text-7xl mb-12;
+      @apply text-7xl mb-12 text-center;
       background: -webkit-linear-gradient(#C4B998 -20%, #C28F2C);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      line-height: 100px;
     }
 
     &-text {
-      @apply text-xl text-gold-60 mb-10;
-      width: 600px;
+      @apply text-xl text-gold-60 mb-10 max-w-[600px];
     }
 
     &-button {
@@ -192,7 +194,7 @@ const categories = ref({
     }
 
     &-presentation {
-      @apply absolute flex flex-col items-center max-w-2xl;
+      @apply absolute flex flex-col items-center max-w-2xl px-10;
       text-shadow: 2px 2px #111318;
 
       p {
@@ -217,7 +219,7 @@ const categories = ref({
   &__category {
     $this: &;
     @apply relative flex items-center justify-center w-1/2 flex-shrink-0 overflow-hidden;
-    height: calc(50vh - 70px);
+    @apply w-full lg:w-1/2 h-[200px] lg:h-[calc(50vh-70px)];
 
     &:hover {
       #{$this}-background {
@@ -226,7 +228,7 @@ const categories = ref({
     }
 
     &-wrapper {
-      @apply absolute flex items-center justify-center w-full h-full;
+      @apply absolute flex items-center justify-center w-full h-full p-10;
       @apply bg-black/50 z-10;
     }
 
@@ -238,13 +240,14 @@ const categories = ref({
 
     &-title {
       @apply text-gold-60;
-      @apply text-5xl capitalize;
+      @apply text-3xl lg:text-5xl capitalize;
       text-shadow: 2px 2px #111318;
     }
   }
 
   &__diamond {
-    @apply absolute flex items-center justify-center flex-grow-0 flex-shrink-0 z-20;
+    @apply hidden lg:flex;
+    @apply absolute items-center justify-center flex-grow-0 flex-shrink-0 z-20;
     @apply border-2 border-gold;
     box-sizing: border-box;
     width: 40px;
