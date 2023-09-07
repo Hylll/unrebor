@@ -11,6 +11,7 @@
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "noImplicitAny": false,
+    "allowJs": true,
     "lib": [
       "esnext",
       "dom"
@@ -19,12 +20,7 @@
       "@/*": ["src/*"],
     }
   },
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.d.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue"
-  ],
+  "exclude": ["dist", "node_modules"],
   "references": [
     {
       "path": "./tsconfig.node.json"

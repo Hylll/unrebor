@@ -4,6 +4,7 @@
       class="topbar__logo"
       :to="{ name: 'Home', params: { locale: 'fr' } }"
     >
+      <font-awesome-icon :icon="['fab', 'd-and-d']" />
       Unrebor
     </router-link>
     <nav class="topbar__navbar">
@@ -55,7 +56,7 @@ import LanguageSwitcher from '@/components/LanguageSwitcher.vue';
   height: 80px;
 
   &__logo {
-    @apply absolute text-gold text-3xl;
+    @apply absolute text-gold hover:text-gold-80 text-3xl;
     left: 50px;
   }
 

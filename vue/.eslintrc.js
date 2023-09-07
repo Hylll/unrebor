@@ -1,36 +1,35 @@
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const extendedVueParser = require('typescript-eslint-parser-for-extra-files');
+
 module.exports = {
   root: true,
   env: {
+    browser: true,
+    es6: true,
     node: true,
   },
   extends: [
     'eslint:recommended',
     'plugin:vue/vue3-recommended',
-    'plugin:@typescript-eslint/eslint-recommended',
-    'plugin:import/recommended',
-    'plugin:import/typescript',
+    'plugin:@typescript-eslint/recommended',
   ],
-  plugins: ['@typescript-eslint'],
   parser: 'vue-eslint-parser',
   parserOptions: {
-    parser: '@typescript-eslint/parser',
+    parser: {
+      ts: extendedVueParser,
+      js: '@typescript-eslint/parser',
+      '<template>': extendedVueParser,
+      vue: 'vue-eslint-parser',
+    },
   },
-  overrides: [{
-    files: ['*.ts', '*.tsx'],
-    rules: {
-      // The core 'no-unused-vars' rules (in the eslint:recommeded ruleset)
-      // does not work with type definitions
-      'no-unused-vars': 'off',
-    }
-  }],
   rules: {
+    semi: ['warn', 'always'],
     'max-len': 'off',
     'no-param-reassign': 'off',
     'no-multiple-empty-lines': 'off',
     'import/prefer-default-export': 'off',
     'no-cond-assign': 'off',
     'vue/multi-word-component-names': 'off',
-    "import/no-unresolved": [2, { "caseSensitive": false }],
     '@typescript-eslint/no-empty-function': 'off',
     'no-restricted-globals': 'off',
   },
