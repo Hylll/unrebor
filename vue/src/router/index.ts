@@ -1,47 +1,47 @@
-import { createRouter, createWebHistory, Router } from 'vue-router'
+import { createRouter, createWebHistory, Router } from 'vue-router';
 
 const router: Router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      component: () => import('../views/Home.vue'),
+      component: () => import('@/modules/home/Home.vue'),
       name: 'Home',
       path: '/',
     },
     {
-      component: () => import('../views/Stories.vue'),
+      component: () => import('@/modules/stories/Stories.vue'),
       name: 'Stories',
       path: '/stories',
     },
     {
-      component: () => import('@/components/Stories/Adventure.vue'),
+      component: () => import('@/modules/stories/Adventure.vue'),
       name: 'Adventure',
       path: '/adventure/:id', // story id
     },
     {
-      component: () => import('@/components/Stories/Chapter.vue'),
+      component: () => import('@/modules/stories/Chapter.vue'),
       name: 'Chapter',
       path: '/adventure/:id/:chapter', // chapter number
     },
     {
-      component: () => import('../views/Characters.vue'),
+      component: () => import('@/modules/characters/Characters.vue'),
       name: 'Characters',
       path: '/characters',
     },
     {
-      component: () => import('../views/Lore.vue'),
+      component: () => import('@/modules/lore/Lore.vue'),
       name: 'Lore',
       path: '/lore',
     },
     {
-      component: () => import('../views/Encyclopedia.vue'),
-      name: 'Encyclopedia',
-      path: '/encyclopedia',
+      component: () => import('@/modules/map/Map.vue'),
+      name: 'Map',
+      path: '/map',
     },
   ],
   scrollBehavior() {
-    return { top: 0 }
+    return { top: 0 };
   },
 });
 
-export default router
+export default router;

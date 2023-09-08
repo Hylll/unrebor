@@ -38,7 +38,7 @@
       <div class="home__world-presentation">
         <p>{{ $t('home.a-world-to-explore') }}</p>
         <router-link
-          :to="{ name: 'Encyclopedia', params: { locale: 'fr' } }"
+          :to="{ name: 'Map' }"
           class="home__presentation-button"
         >
           {{ $t('home.explore-world') }}
@@ -103,9 +103,9 @@ const categories = ref({
       backgroundImage: `url(${new URL(`${s3Path}/lore_bg.jpg`, import.meta.url).href})`,
     },
   },
-  encyclopedia: {
-    title: 'encyclopedia',
-        link: 'encyclopedia',
+  map: {
+    title: 'map',
+        link: 'map',
         style: {
       backgroundImage: `url(${new URL(`${s3Path}/encyclopedia_bg.jpg`, import.meta.url).href})`,
     },

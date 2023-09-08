@@ -31,7 +31,7 @@
 </template>
 
 <script lang="ts" setup>
-import storiesFixtures from '../../fixtures/stories.json';
+import storiesFixtures from '@/fixtures/stories.json';
 import { useRoute } from "vue-router";
 const route = useRoute();
 

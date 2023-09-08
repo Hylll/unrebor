@@ -34,7 +34,7 @@
             >
               <router-link
                 class="adventure__chapter-wrapper"
-                :to="{ name: 'Chapter', params: { chapter: chapter.number, locale: 'fr' } }"
+                :to="{ name: 'Chapter', params: { chapter: chapter.number } }"
               >
                 <p class="adventure__chapter-number">
                   {{ $t('chapter') }} {{ chapter.number }}
@@ -57,7 +57,7 @@
 </template>
 
 <script lang="ts" setup>
-import storiesFixtures from '../../fixtures/stories.json';
+import storiesFixtures from '@/fixtures/stories.json';
 
 const adventure = storiesFixtures[0];
 </script>
